@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var buttons = [UIImageView]()
+    var buttons = [UIButton]()
     
     var currentPage = 0
     
@@ -39,7 +39,8 @@ class ViewController: UIViewController {
         
         for x in 0...5 {
             let image = UIImage(named: "icon\(x)")
-            let buttonView = UIImageView(image: image)
+            let buttonView = UIButton()
+            buttonView.setImage(image, for: .normal)
             buttons.append(buttonView)
             
             var newX: CGFloat = 0.0
@@ -49,11 +50,14 @@ class ViewController: UIViewController {
             scrollView.addSubview(buttonView)
             
             buttonView.frame = CGRect(x: newX - (screenWidth / 6), y: scrollView.frame.size.height / 2 - (screenWidth / 6), width: screenWidth / 3, height: screenWidth / 3)
+            
+            buttonView.addTarget(self, action:#selector(buttonPressed), for: .touchUpInside)
         }
         
         scrollView.clipsToBounds = false
         
         scrollView.contentSize = CGSize(width: contentWidth, height: scrollView.frame.size.height)
+        
         
     }
 
@@ -76,6 +80,25 @@ class ViewController: UIViewController {
             let scrollPos: CGPoint = CGPoint(x: CGFloat(currentPage) * scrollWidth - scrollWidth, y: 0.0)
             scrollView.setContentOffset(scrollPos, animated: true)
             currentPage -= 1
+        }
+    }
+    
+    func buttonPressed(sender: UIButton){
+        switch currentPage {
+        case 0:
+            print("Currency")
+        case 1:
+            print("Temperature")
+        case 2:
+            print("Weight")
+        case 3:
+            print("Length")
+        case 4:
+            print("Area")
+        case 5:
+            print("Volume")
+        default:
+            print("Default")
         }
     }
     
