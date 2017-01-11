@@ -21,18 +21,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wzq-3N-B8o">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzq-3N-B8o">
                                 <rect key="frame" x="76" y="0.0" width="223" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.77616843352195342" green="0.98786987859494158" blue="0.91283032718120805" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BVF-iU-JHM" appends="YES" id="buk-JT-y6v"/>
+                            <outletCollection property="gestureRecognizers" destination="LWR-pu-Vdm" appends="YES" id="qpC-ww-bvu"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="Wzq-3N-B8o" id="usi-tY-Ywv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="BVF-iU-JHM">
+                    <connections>
+                        <action selector="leftSwipe:" destination="BYZ-38-t0r" id="Yvt-SI-Kc5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="LWR-pu-Vdm">
+                    <connections>
+                        <action selector="rightSwipe:" destination="BYZ-38-t0r" id="eK5-zf-0ej"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     var buttons = [UIImageView]()
     
+    var currentPage = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,5 +57,27 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func leftSwipe(_ sender: Any) {
+        if currentPage == 5 {
+            
+        } else {
+            let scrollWidth = scrollView.frame.size.width
+            let scrollPos: CGPoint = CGPoint(x: CGFloat(currentPage) * scrollWidth + scrollWidth, y: 0.0)
+            scrollView.setContentOffset(scrollPos, animated: true)
+            currentPage += 1
+        }
+    }
+    
+    @IBAction func rightSwipe(_ sender: Any) {
+        if currentPage == 0 {
+            
+        } else {
+            let scrollWidth = scrollView.frame.size.width
+            let scrollPos: CGPoint = CGPoint(x: CGFloat(currentPage) * scrollWidth - scrollWidth, y: 0.0)
+            scrollView.setContentOffset(scrollPos, animated: true)
+            currentPage -= 1
+        }
+    }
+    
 }
 
