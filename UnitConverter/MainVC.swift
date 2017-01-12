@@ -90,7 +90,8 @@ class MainVC: UIViewController {
             let option = "Currency"
             performSegue(withIdentifier: "CurrencyVC", sender: option)
         case 1:
-            print("Temperature")
+            let option = "Temperature"
+            performSegue(withIdentifier: "TemperatureVC", sender: option)
         case 2:
             print("Weight")
         case 3:
