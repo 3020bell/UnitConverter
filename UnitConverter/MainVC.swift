@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -61,7 +61,8 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func leftSwipe(_ sender: Any) {
+    
+    @IBAction func LeftSwipe(_ sender: Any) {
         if currentPage == 5 {
             
         } else {
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func rightSwipe(_ sender: Any) {
+    @IBAction func RightSwipe(_ sender: Any) {
         if currentPage == 0 {
             
         } else {
@@ -86,7 +87,8 @@ class ViewController: UIViewController {
     func buttonPressed(sender: UIButton){
         switch currentPage {
         case 0:
-            print("Currency")
+            let option = "Currency"
+            performSegue(withIdentifier: "CurrencyVC", sender: option)
         case 1:
             print("Temperature")
         case 2:
